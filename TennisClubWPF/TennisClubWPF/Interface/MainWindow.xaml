@@ -12,7 +12,7 @@
             <ColumnDefinition Width="303*"/>
         </Grid.ColumnDefinitions>
         <Label x:Name="LabelTitre" Content="Tennis Club" HorizontalAlignment="Left" Margin="39,9,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Grid.Column="1"/>
-        <ListView x:Name="ListViewJoueur" HorizontalAlignment="Left" Height="315" Width="300" Margin="10,64,0,0" VerticalAlignment="Top">
+        <ListView x:Name="ListViewJoueur" HorizontalAlignment="Left" Height="315" Width="300" Margin="10,64,0,0" VerticalAlignment="Top" SelectionChanged="ListViewJoueur_SelectionChanged">
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Tennis Information">
                     <GridViewColumn DisplayMemberBinding="{Binding Nom, Mode=TwoWay}" Header="Nom" Width="100"/>
@@ -46,8 +46,8 @@
         <Label x:Name="LabelTitreCotisation" Content="Cotisation :" HorizontalAlignment="Left" Margin="329,284,0,0" VerticalAlignment="Top" Height="25" Width="88" Grid.ColumnSpan="2"/>
         <Label x:Name="LabelCompet" Content="Competition :" HorizontalAlignment="Left" Margin="329,258,0,0" VerticalAlignment="Top" Height="25" Width="104" Grid.ColumnSpan="2"/>
         <CheckBox x:Name="CheckBoxCompet" Content="Competition" HorizontalAlignment="Left" Margin="112,268,0,0" VerticalAlignment="Top" Height="15" Width="108" Grid.Column="1"/>
-        <Button x:Name="BtnEnregistrer" Content="Enregistrer" HorizontalAlignment="Left" Margin="346,335,0,0" VerticalAlignment="Top" Width="154" Height="29" Grid.ColumnSpan="2" Click="BtnEnregistrer_Click"/>
-        <Button x:Name="BtnQuitter" Content="Quitter" HorizontalAlignment="Left" Margin="126,335,0,0" VerticalAlignment="Top" Width="138" RenderTransformOrigin="0.5,0.5" Height="29" Click="BtnQuitter_Click" Grid.Column="1">
+        <Button x:Name="BtnEnregistrer" Content="Enregistrer" HorizontalAlignment="Left" Margin="26,336,0,0" VerticalAlignment="Top" Width="154" Height="29" Click="BtnEnregistrer_Click" Grid.Column="1"/>
+        <Button x:Name="BtnQuitter" Content="Quitter" HorizontalAlignment="Left" Margin="189,335,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Height="29" Click="BtnQuitter_Click" Grid.Column="1">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -58,5 +58,6 @@
             </Button.RenderTransform>
         </Button>
         <Button x:Name="BtnAjouterMembre" Content="Ajouter membre" HorizontalAlignment="Left" Margin="77,384,0,0" VerticalAlignment="Top" Width="114" Height="26" Click="BtnAjouterMembre_Click"/>
+        <Button x:Name="BtnSuppr" Grid.ColumnSpan="2" Content="Supprimer" HorizontalAlignment="Left" Margin="329,336,0,0" VerticalAlignment="Top" Width="80" Height="29" Click="BtnSuppr_Click"/>
     </Grid>
 </Window>

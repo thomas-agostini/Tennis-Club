@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -23,13 +25,14 @@ namespace TennisClubWPF
     public partial class MainWindow : Window
     {
 
-        List<Membre> membres;
+        ObservableCollection<Membre> membres;
 
         public MainWindow()
         {
-            membres = new List<Membre>();
+            membres = new ObservableCollection<Membre>();
             // Remplir combobox typePersonne
-            ComboBoxTypePersonne = new ComboBox();
+            ComboBoxTypePersonne = new System.Windows.Controls.ComboBox(); 
+
             this.DataContext = membres;
 
             InitializeComponent();
@@ -68,12 +71,54 @@ namespace TennisClubWPF
             var compet = CheckBoxCompet.IsChecked;
             var membre = new Membre()
             {
+                Type = (TypePersonne)Enum.Parse(typeof(TypePersonne), typePersonne),
                 Nom = nom,
                 Prenom = prenom,
+                DateNaissance = DateTime.Parse(naissance),
                 Adresse = adresse,
+                Competition = bool.Parse(compet.ToString())
             };
             membres.Add(membre);
             Vider_champs();
+        }
+
+        /// <summary>
+        /// Quand on selectionne un element dans la liste des joueurs
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ListViewJoueur_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var itemSelected = (Membre)ListViewJoueur.SelectedItem;
+            if (itemSelected != null)
+            {
+                ComboBoxTypePersonne.Text = itemSelected.Type.ToString();
+                TextBoxNom.Text = itemSelected.Nom;
+                TextBoxPrenom.Text = itemSelected.Prenom;
+                TextBoxDateNaissance.Text = itemSelected.DateNaissance.ToString("dd/MM/yyyy");
+                LabelAge.Content = itemSelected.Age;
+                TextBoxAdresse.Text = itemSelected.Adresse;
+                LabelCotisation.Content = itemSelected.Cotisation.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Action pour supprimer un joueur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnSuppr_Click(object sender, RoutedEventArgs e)
+        {
+            var itemSelected = (Membre)ListViewJoueur.SelectedItem;
+
+            DialogResult myResult;
+            myResult = System.Windows.Forms.MessageBox.Show("Are you really delete the item?", "Delete Confirmation",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (myResult == System.Windows.Forms.DialogResult.OK)
+            {
+                ListViewJoueur.SelectedItem = null;
+                membres.Remove(itemSelected);
+            }
         }
 
         #endregion
@@ -107,8 +152,11 @@ namespace TennisClubWPF
 
 
 
-        #endregion
 
+
+
+
+        #endregion
 
         
     }
