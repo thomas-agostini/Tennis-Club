@@ -1,0 +1,14 @@
+D:\Documents\GITrepos\TennisClubWPF\TennisClubWPF\bin\Debug\TennisClubWPF.exe.config
+D:\Documents\GITrepos\TennisClubWPF\TennisClubWPF\bin\Debug\TennisClubWPF.exe
+D:\Documents\GITrepos\TennisClubWPF\TennisClubWPF\bin\Debug\TennisClubWPF.pdb
+D:\Documents\GITrepos\TennisClubWPF\TennisClubWPF\obj\Debug\TennisClubWPF.csprojAssemblyReference.cache
+D:\Documents\GITrepos\TennisClubWPF\TennisClubWPF\obj\Debug\App.g.cs
+D:\Documents\GITrepos\TennisClubWPF\TennisClubWPF\obj\Debug\TennisClubWPF_MarkupCompile.cache
+D:\Documents\GITrepos\TennisClubWPF\TennisClubWPF\obj\Debug\TennisClubWPF_MarkupCompile.lref
+D:\Documents\GITrepos\TennisClubWPF\TennisClubWPF\obj\Debug\TennisClubWPF.g.resources
+D:\Documents\GITrepos\TennisClubWPF\TennisClubWPF\obj\Debug\TennisClubWPF.Properties.Resources.resources
+D:\Documents\GITrepos\TennisClubWPF\TennisClubWPF\obj\Debug\TennisClubWPF.csproj.GenerateResource.cache
+D:\Documents\GITrepos\TennisClubWPF\TennisClubWPF\obj\Debug\TennisClubWPF.exe
+D:\Documents\GITrepos\TennisClubWPF\TennisClubWPF\obj\Debug\TennisClubWPF.pdb
+D:\Documents\GITrepos\TennisClubWPF\TennisClubWPF\obj\Debug\Interface\MainWindow.g.cs
+D:\Documents\GITrepos\TennisClubWPF\TennisClubWPF\obj\Debug\Interface\MainWindow.baml
