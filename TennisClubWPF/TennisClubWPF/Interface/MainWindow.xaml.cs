@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TennisClub.Acteur;
+using TennisClub.Activites;
 
 namespace TennisClubWPF
 {
@@ -26,14 +27,19 @@ namespace TennisClubWPF
     {
 
         ObservableCollection<Membre> membres;
+        ObservableCollection<Cours> coursAffiches;
 
         public MainWindow()
         {
             membres = new ObservableCollection<Membre>();
+            coursAffiches = new ObservableCollection<Cours>();
+
             // Remplir combobox typePersonne
             ComboBoxTypePersonne = new System.Windows.Controls.ComboBox(); 
 
             this.DataContext = membres;
+            this.DataContext = coursAffiches;
+
 
             InitializeComponent();
             
@@ -42,6 +48,7 @@ namespace TennisClubWPF
             ComboBoxTypePersonne.SelectedIndex = 0;
 
             ListViewJoueur.ItemsSource = membres;
+            ListViewCours.ItemsSource = coursAffiches;
         }
 
         #region - Fonctions boutons -
@@ -75,6 +82,7 @@ namespace TennisClubWPF
                 Nom = nom,
                 Prenom = prenom,
                 DateNaissance = DateTime.Parse(naissance),
+                Age = Int32.Parse(DateTime.Parse(naissance).ToString("yyyy")) - Int32.Parse(DateTime.UtcNow.ToString("yyyy")),
                 Adresse = adresse,
                 Competition = bool.Parse(compet.ToString())
             };
@@ -99,6 +107,7 @@ namespace TennisClubWPF
                 LabelAge.Content = itemSelected.Age;
                 TextBoxAdresse.Text = itemSelected.Adresse;
                 LabelCotisation.Content = itemSelected.Cotisation.ToString();
+                ListViewCours.ItemsSource = itemSelected.Cours;
             }
         }
 
