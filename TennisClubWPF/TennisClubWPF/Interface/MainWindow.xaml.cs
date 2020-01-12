@@ -82,7 +82,7 @@ namespace TennisClubWPF
                 Nom = nom,
                 Prenom = prenom,
                 DateNaissance = DateTime.Parse(naissance),
-                Age = Int32.Parse(DateTime.Parse(naissance).ToString("yyyy")) - Int32.Parse(DateTime.UtcNow.ToString("yyyy")),
+                Age = Int32.Parse(DateTime.UtcNow.ToString("yyyy")) - Int32.Parse(DateTime.Parse(naissance).ToString("yyyy")),
                 Adresse = adresse,
                 Competition = bool.Parse(compet.ToString())
             };
